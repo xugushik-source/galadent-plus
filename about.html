@@ -100,6 +100,7 @@
 </style>
 </head>
 <body class="lang-ka">
+<script>(function(){var s=localStorage.getItem('galadentLang'); if(s) document.body.className='lang-'+s;})();</script>
 
 <div class="topbar">
   <div class="clinic-group">
@@ -146,9 +147,9 @@
   </div>
 
   <div class="photo-grid">
-    <div class="big"><img src="photos/consultation.jpg" alt="GALADENT+"></div>
-    <div class="small"><img src="photos/xray-review.jpg" alt="GALADENT+"></div>
-    <div class="small"><img src="photos/reception.jpg" alt="GALADENT+"></div>
+    <div class="big"><img src="consultation.jpeg" alt="GALADENT+"></div>
+    <div class="small"><img src="xray-review.jpeg" alt="GALADENT+"></div>
+    <div class="small"><img src="reception.jpeg" alt="GALADENT+"></div>
   </div>
 
   <div class="section-head">
@@ -214,7 +215,16 @@
     document.body.className = 'lang-' + b.dataset.setlang;
     document.documentElement.lang = b.dataset.setlang;
     document.querySelectorAll('.lang-btn').forEach(x => x.classList.toggle('active', x === b));
+    localStorage.setItem('galadentLang', b.dataset.setlang);
   }));
+
+  (function(){
+    var saved = localStorage.getItem('galadentLang');
+    if (saved) {
+      document.documentElement.lang = saved;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.setlang === saved));
+    }
+  })();
 </script>
 </body>
 </html>

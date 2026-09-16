@@ -156,6 +156,7 @@
 </style>
 </head>
 <body class="lang-ka">
+<script>(function(){var s=localStorage.getItem('galadentLang'); if(s) document.body.className='lang-'+s;})();</script>
 
 <div class="topbar">
   <div class="clinic-group">
@@ -422,6 +423,7 @@
     document.body.className = 'lang-' + lang;
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.setlang === lang));
+    localStorage.setItem('galadentLang', lang);
     renderPriceList();
     recalcCalculator();
     loadSlots();
@@ -544,9 +546,14 @@
 
   dateInput.addEventListener('change', loadSlots);
 
-  renderPriceList();
-  recalcCalculator();
-  loadSlots();
+  const savedLang = localStorage.getItem('galadentLang');
+  if (savedLang && savedLang !== 'ka') {
+    setLang(savedLang);
+  } else {
+    renderPriceList();
+    recalcCalculator();
+    loadSlots();
+  }
 </script>
 </body>
 </html>
