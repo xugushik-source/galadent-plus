@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALADENT+ — შესახებ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700&family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2FAF9; --surface:#FFFFFF; --ink:#183333;
+    --teal:#176B68; --teal-light:#45AAA0;
+    --gold:#C9974A; --gold-light:#E3B876;
+    --muted:#6E8177;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter','Noto Sans Georgian',sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:520px; margin:0 auto; padding:0 20px 40px;}
+
+  @media (min-width:680px){
+    body{
+      background:
+        radial-gradient(circle at 15% 0%, rgba(69,170,160,.16), transparent 45%),
+        radial-gradient(circle at 100% 30%, rgba(201,151,74,.12), transparent 40%),
+        var(--bg);
+      padding:40px 20px;
+    }
+    .topbar, .lang-switch, .sitenav{max-width:640px;}
+    .wrap{
+      max-width:640px; background:var(--surface); border-radius:28px;
+      box-shadow:0 30px 70px rgba(23,51,51,.14), 0 4px 14px rgba(23,51,51,.06);
+      padding:8px 40px 44px; margin:0 auto;
+    }
+    .card{box-shadow:0 2px 10px rgba(23,51,51,.07);}
+  }
+  a{color:inherit;}
+
+  .topbar{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:520px; margin:0 auto;}
+  .clinic-group{display:flex; align-items:center; gap:12px;}
+  .clinic-group img{height:54px; width:auto;}
+  .clinic-text{display:flex; flex-direction:column;}
+  .clinic{font-family:'Fraunces',serif; font-weight:500; font-size:16px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); line-height:1.3;}
+  .clinic-rule{width:34px; height:1.5px; background:var(--gold); margin-top:3px;}
+  .call{display:flex; align-items:center; gap:6px; background:var(--teal); color:#fff; padding:8px 12px; border-radius:20px; font-size:13px; font-weight:600; text-decoration:none;}
+
+  .lang-switch{display:flex; gap:6px; max-width:520px; margin:0 auto; padding:2px 20px 10px;}
+  .lang-btn{flex:1; padding:10px 6px; border:1.5px solid #DCE5DA; border-radius:10px; background:var(--surface); color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-align:center;}
+  .lang-btn.active{background:var(--gold); color:#fff; border-color:var(--gold);}
+
+  .sitenav{display:flex; gap:6px; max-width:520px; margin:0 auto; padding:0 20px 14px;}
+  .sitenav a{padding:8px 14px; border-radius:20px; background:#EAEFE8; color:var(--muted); font-size:13px; font-weight:600; text-decoration:none;}
+  .sitenav a.active{background:var(--teal); color:#fff;}
+
+  .eyebrow{font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:10px;}
+  h1{font-family:'Fraunces',serif; font-weight:600; font-size:30px; line-height:1.18; color:var(--teal); margin:16px 0 12px;}
+  .lead{color:var(--muted); font-size:16px; line-height:1.6; margin-bottom:26px;}
+
+  .trust-strip{display:flex; gap:8px; margin-bottom:30px;}
+  .trust-item{flex:1; background:var(--surface); border-radius:12px; padding:14px 8px; text-align:center; box-shadow:0 1px 3px rgba(30,61,54,.06);}
+  .trust-item .n{font-family:'Fraunces',serif; font-size:22px; color:var(--teal); font-weight:600;}
+  .trust-item .l{font-size:11px; color:var(--muted); margin-top:3px; line-height:1.3;}
+
+  .photo{width:100%; border-radius:var(--radius); overflow:hidden; margin-bottom:26px; box-shadow:0 1px 3px rgba(30,61,54,.1);}
+  .photo img{width:100%; display:block;}
+  .photo-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:8px; margin-bottom:26px;}
+  .photo-grid .big{grid-row:span 2; border-radius:var(--radius); overflow:hidden; box-shadow:0 1px 3px rgba(30,61,54,.1);}
+  .photo-grid .small{border-radius:var(--radius); overflow:hidden; box-shadow:0 1px 3px rgba(30,61,54,.1);}
+  .photo-grid img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo img{width:100%; display:block;}
+
+  .section-head{margin:34px 0 14px;}
+  .section-head .kicker{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:4px;}
+  .section-head h2{font-family:'Fraunces',serif; font-size:21px; color:var(--teal); margin:0; font-weight:600;}
+
+  .card{background:var(--surface); border-radius:var(--radius); padding:20px; margin-bottom:16px; box-shadow:0 1px 3px rgba(30,61,54,.08);}
+  .card p{margin:0 0 12px; line-height:1.65; font-size:15px;}
+  .card p:last-child{margin-bottom:0;}
+
+  .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+  .badge{background:var(--teal); color:#fff; font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px;}
+
+  .team{display:flex; gap:14px; margin-bottom:16px;}
+  .team-card{flex:1; background:var(--surface); border-radius:var(--radius); padding:16px; text-align:center; box-shadow:0 1px 3px rgba(30,61,54,.08);}
+  .team-card .role{font-size:12px; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px;}
+  .team-card .name{font-family:'Fraunces',serif; font-weight:600; color:var(--teal); font-size:16px;}
+
+  .legal{font-size:13px; color:var(--muted); line-height:1.7;}
+  .legal strong{color:var(--ink);}
+
+  .review-placeholder{border:1.5px dashed #C9D6C6; border-radius:var(--radius); padding:20px; text-align:center; color:var(--muted); font-size:14px; background:#FBFCFA;}
+
+  footer{text-align:center; font-size:12px; color:var(--muted); margin-top:30px;}
+
+  [data-i18n]{display:none;}
+  body.lang-ka [data-i18n="ka"]{display:block;}
+  body.lang-ru [data-i18n="ru"]{display:block;}
+  body.lang-en [data-i18n="en"]{display:block;}
+  body.lang-ka span[data-i18n="ka"], body.lang-ru span[data-i18n="ru"], body.lang-en span[data-i18n="en"]{display:inline;}
+</style>
+</head>
+<body class="lang-ka">
+
+<div class="topbar">
+  <div class="clinic-group">
+    
+    <div class="clinic-text"><div class="clinic">GALADENT+</div><div class="clinic-rule"></div></div>
+  </div>
+  <a class="call" href="tel:+995514593000">📞 <span data-i18n="ka">დარეკეთ</span><span data-i18n="ru">Позвонить</span><span data-i18n="en">Call</span></a>
+</div>
+
+<div class="lang-switch">
+  <div class="lang-btn active" data-setlang="ka">ქართული</div>
+  <div class="lang-btn" data-setlang="en">English</div>
+  <div class="lang-btn" data-setlang="ru">Русский</div>
+</div>
+
+<nav class="sitenav">
+  <a href="index.html"><span data-i18n="ka">ფასები და ჩაწერა</span><span data-i18n="ru">Цены и запись</span><span data-i18n="en">Prices & booking</span></a>
+  <a href="about.html" class="active"><span data-i18n="ka">ჩვენ შესახებ</span><span data-i18n="ru">О нас</span><span data-i18n="en">About us</span></a>
+  <a href="tips.html"><span data-i18n="ka">რჩევები</span><span data-i18n="ru">Советы</span><span data-i18n="en">Tips</span></a>
+</nav>
+
+<div class="wrap">
+
+  <div data-i18n="ka">
+    <div class="eyebrow">კლინიკის შესახებ</div>
+    <h1>თანამედროვე სტომატოლოგია მთელი ოჯახისთვის</h1>
+    <div class="lead">GALADENT+ ზრუნავს თქვენი ღიმილის ჯანმრთელობაზე — თანამედროვე მიდგომითა და ყურადღებით თითოეული პაციენტის მიმართ.</div>
+  </div>
+  <div data-i18n="en">
+    <div class="eyebrow">About the clinic</div>
+    <h1>Modern dentistry for the whole family</h1>
+    <div class="lead">GALADENT+ takes care of your smile — a modern approach and attention to every patient.</div>
+  </div>
+  <div data-i18n="ru">
+    <div class="eyebrow">О клинике</div>
+    <h1>Современная стоматология для всей семьи</h1>
+    <div class="lead">GALADENT+ заботится о здоровье вашей улыбки — современный подход и внимание к каждому пациенту.</div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item"><div class="n">4.6★</div><div class="l"><span data-i18n="ka">შეფასება Google-ზე</span><span data-i18n="ru">Рейтинг на Google</span><span data-i18n="en">Google rating</span></div></div>
+    <div class="trust-item"><div class="n">0 ₾</div><div class="l"><span data-i18n="ka">პირველადი კონსულტაცია</span><span data-i18n="ru">Первичная консультация</span><span data-i18n="en">Initial consultation</span></div></div>
+    <div class="trust-item"><div class="n">6</div><div class="l"><span data-i18n="ka">სამუშაო დღე კვირაში</span><span data-i18n="ru">рабочих дней в неделю</span><span data-i18n="en">working days a week</span></div></div>
+  </div>
+
+  <div class="photo-grid">
+    <div class="big"><img src="photos/consultation.jpg" alt="GALADENT+"></div>
+    <div class="small"><img src="photos/xray-review.jpg" alt="GALADENT+"></div>
+    <div class="small"><img src="photos/reception.jpg" alt="GALADENT+"></div>
+  </div>
+
+  <div class="section-head">
+    <div data-i18n="ka"><div class="kicker">ჩვენ შესახებ</div><h2>თანამედროვე მიდგომა</h2></div>
+    <div data-i18n="en"><div class="kicker">About us</div><h2>A modern approach</h2></div>
+    <div data-i18n="ru"><div class="kicker">О клинике</div><h2>Современный подход</h2></div>
+  </div>
+  <div class="card">
+    <div data-i18n="ka"><p>ჩვენი გუნდი ზრუნავს, რომ ყოველი ვიზიტი იყოს კომფორტული და გასაგები — დიაგნოზიდან მკურნალობამდე. ვმუშაობთ თანამედროვე მასალებითა და მეთოდებით.</p></div>
+    <div data-i18n="en"><p>Our team makes sure every visit is comfortable and clear — from diagnosis to treatment. We work with modern materials and methods.</p></div>
+    <div data-i18n="ru"><p>Наша команда заботится о том, чтобы каждый визит был комфортным и понятным — от диагностики до лечения. Работаем с современными материалами и методами.</p></div>
+  </div>
+
+  <div class="card">
+    <div data-i18n="ka"><p><strong>ჩვენი გუნდი</strong> — გამოცდილი სტომატოლოგები თერაპიის, ორთოდონტიისა და ბავშვთა სტომატოლოგიის მიმართულებით. დეტალური ინფორმაცია ექიმების შესახებ მალე დაემატება.</p></div>
+    <div data-i18n="en"><p><strong>Our team</strong> — experienced dentists covering therapy, orthodontics and pediatric dentistry. Detailed doctor profiles will be added soon.</p></div>
+    <div data-i18n="ru"><p><strong>Наша команда</strong> — опытные стоматологи по направлениям терапии, ортодонтии и детской стоматологии. Подробная информация о врачах появится позже.</p></div>
+  </div>
+
+  <div class="section-head">
+    <div data-i18n="ka"><div class="kicker">აღჭურვილობა</div><h2>თანამედროვე ტექნიკა</h2></div>
+    <div data-i18n="en"><div class="kicker">Equipment</div><h2>Modern technology</h2></div>
+    <div data-i18n="ru"><div class="kicker">Оснащение</div><h2>Современное оборудование</h2></div>
+  </div>
+  <div class="card">
+    <div data-i18n="ka"><p>კლინიკა აღჭურვილია თანამედროვე სტომატოლოგიური ტექნიკით პროფესიული წმენდისა და მკურნალობისთვის.</p></div>
+    <div data-i18n="en"><p>The clinic is equipped with modern dental technology for professional cleaning and treatment.</p></div>
+    <div data-i18n="ru"><p>Клиника оснащена современным стоматологическим оборудованием для профессиональной чистки и лечения.</p></div>
+  </div>
+
+  <div class="badge-row">
+    <div class="badge"><span data-i18n="ka">უფასო კონსულტაცია</span><span data-i18n="ru">Бесплатная консультация</span><span data-i18n="en">Free consultation</span></div>
+    <div class="badge"><span data-i18n="ka">განვადება</span><span data-i18n="ru">Рассрочка</span><span data-i18n="en">Installment plan</span></div>
+  </div>
+
+  <div class="section-head">
+    <div data-i18n="ka"><div class="kicker">შეფასებები</div><h2>რას ამბობენ პაციენტები</h2></div>
+    <div data-i18n="en"><div class="kicker">Reviews</div><h2>What patients say</h2></div>
+    <div data-i18n="ru"><div class="kicker">Отзывы</div><h2>Что говорят пациенты</h2></div>
+  </div>
+  <div class="review-placeholder">
+    <span data-i18n="ka">აქ გამოქვეყნდება კლინიკის რეალური პაციენტების შეფასებები.</span>
+    <span data-i18n="ru">Здесь появятся отзывы реальных пациентов клиники.</span>
+    <span data-i18n="en">Real patient reviews of the clinic will be published here.</span>
+  </div>
+
+  <div class="section-head">
+    <div data-i18n="ka"><div class="kicker">რეკვიზიტები</div><h2>ოფიციალური ინფორმაცია</h2></div>
+    <div data-i18n="en"><div class="kicker">Official info</div><h2>Contact details</h2></div>
+    <div data-i18n="ru"><div class="kicker">Реквизиты</div><h2>Официальная информация</h2></div>
+  </div>
+  <div class="card legal">
+    <div data-i18n="ka"><p><strong>მისამართი:</strong> V მიკრორაიონი, კორპ. 26ბ, გლდანი, თბილისი</p><p><strong>სამუშაო საათები:</strong> ორშაბათი–შაბათი, 9:00–19:00</p><p><strong>ტელეფონი:</strong> +995 514 59 30 00</p></div>
+    <div data-i18n="en"><p><strong>Address:</strong> V microdistrict, building 26B, Gldani, Tbilisi</p><p><strong>Hours:</strong> Mon–Sat, 9:00–19:00</p><p><strong>Phone:</strong> +995 514 59 30 00</p></div>
+    <div data-i18n="ru"><p><strong>Адрес:</strong> V микрорайон, корпус 26Б, Глдани, Тбилиси</p><p><strong>Часы работы:</strong> пн–сб, 9:00–19:00</p><p><strong>Телефон:</strong> +995 514 59 30 00</p></div>
+  </div>
+
+  <footer>GALADENT+ · Тбилиси, Глдани · <a href="tel:+995514593000">+995 514 59 30 00</a></footer>
+</div>
+
+<script>
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
+    document.body.className = 'lang-' + b.dataset.setlang;
+    document.documentElement.lang = b.dataset.setlang;
+    document.querySelectorAll('.lang-btn').forEach(x => x.classList.toggle('active', x === b));
+  }));
+</script>
+</body>
+</html>

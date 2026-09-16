@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALADENT+ — რჩევები</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2FAF9; --surface:#FFFFFF; --ink:#183333;
+    --teal:#176B68; --teal-light:#45AAA0;
+    --gold:#C9974A; --gold-light:#E3B876;
+    --muted:#6E8177;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Inter','Noto Sans Georgian',sans-serif; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:520px; margin:0 auto; padding:0 20px 40px;}
+  a{color:inherit;}
+
+  @media (min-width:680px){
+    body{
+      background:
+        radial-gradient(circle at 15% 0%, rgba(69,170,160,.16), transparent 45%),
+        radial-gradient(circle at 100% 30%, rgba(201,151,74,.12), transparent 40%),
+        var(--bg);
+      padding:40px 20px;
+    }
+    .topbar, .lang-switch, .sitenav{max-width:640px;}
+    .wrap{
+      max-width:640px; background:var(--surface); border-radius:28px;
+      box-shadow:0 30px 70px rgba(23,51,51,.14), 0 4px 14px rgba(23,51,51,.06);
+      padding:8px 40px 44px; margin:0 auto;
+    }
+    .tip-card, .story-card{box-shadow:0 2px 10px rgba(23,51,51,.07);}
+  }
+
+  .topbar{display:flex; justify-content:space-between; align-items:center; padding:16px 20px; max-width:520px; margin:0 auto;}
+  .clinic-group{display:flex; align-items:center; gap:12px;}
+  .clinic-text{display:flex; flex-direction:column;}
+  .clinic{font-family:'Fraunces',serif; font-weight:500; font-size:16px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); line-height:1.3;}
+  .clinic-rule{width:34px; height:1.5px; background:var(--gold); margin-top:3px;}
+  .call{display:flex; align-items:center; gap:6px; background:var(--teal); color:#fff; padding:8px 12px; border-radius:20px; font-size:13px; font-weight:600; text-decoration:none;}
+
+  .lang-switch{display:flex; gap:6px; max-width:520px; margin:0 auto; padding:2px 20px 10px;}
+  .lang-btn{flex:1; padding:10px 6px; border:1.5px solid #DCE5DA; border-radius:10px; background:var(--surface); color:var(--teal); font-weight:700; font-size:13px; cursor:pointer; text-align:center;}
+  .lang-btn.active{background:var(--gold); color:#fff; border-color:var(--gold);}
+
+  .sitenav{display:flex; gap:6px; max-width:520px; margin:0 auto; padding:0 20px 14px;}
+  .sitenav a{padding:8px 14px; border-radius:20px; background:#EAEFE8; color:var(--muted); font-size:13px; font-weight:600; text-decoration:none;}
+  .sitenav a.active{background:var(--teal); color:#fff;}
+
+  .eyebrow{font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:10px;}
+  h1{font-family:'Fraunces',serif; font-weight:600; font-size:28px; line-height:1.18; color:var(--teal); margin:16px 0 12px;}
+  .lead{color:var(--muted); font-size:16px; line-height:1.6; margin-bottom:26px;}
+
+  .tip-card{background:var(--surface); border-radius:var(--radius); padding:18px; margin-bottom:14px; box-shadow:0 1px 3px rgba(30,61,54,.08); display:flex; gap:14px;}
+  .tip-num{flex:0 0 auto; width:34px; height:34px; border-radius:50%; background:var(--teal); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600;}
+  .tip-body h3{margin:0 0 6px; font-family:'Fraunces',serif; font-size:16px; color:var(--teal); font-weight:600;}
+  .tip-body p{margin:0; font-size:14px; line-height:1.55; color:var(--ink);}
+
+  .section-head{margin:34px 0 14px;}
+  .section-head .kicker{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:4px;}
+  .section-head h2{font-family:'Fraunces',serif; font-size:21px; color:var(--teal); margin:0; font-weight:600;}
+
+  .story-card{background:var(--surface); border-radius:var(--radius); padding:20px; box-shadow:0 1px 3px rgba(30,61,54,.08);}
+  .story-card p{margin:0 0 12px; line-height:1.65; font-size:15px;}
+  .story-card p:last-child{margin-bottom:0;}
+
+  .myth-item{margin-bottom:18px;}
+  .myth-item:last-child{margin-bottom:0;}
+  .myth-item .myth-title{font-weight:700; color:var(--teal); font-size:14.5px; margin-bottom:4px;}
+  .myth-item p{margin:0; font-size:14.5px; line-height:1.6; color:var(--ink);}
+  .myth-cta{
+    margin-top:16px; padding-top:16px; border-top:1px dashed #E1E8E0;
+    font-weight:600; font-size:14.5px; color:var(--teal);
+  }
+  .myth-cta a{color:var(--gold); text-decoration:underline;}
+
+  footer{text-align:center; font-size:12px; color:var(--muted); margin-top:30px;}
+
+  [data-i18n]{display:none;}
+  body.lang-ka [data-i18n="ka"]{display:block;}
+  body.lang-ru [data-i18n="ru"]{display:block;}
+  body.lang-en [data-i18n="en"]{display:block;}
+  body.lang-ka span[data-i18n="ka"], body.lang-ru span[data-i18n="ru"], body.lang-en span[data-i18n="en"]{display:inline;}
+</style>
+</head>
+<body class="lang-ka">
+
+<div class="topbar">
+  <div class="clinic-group">
+    <div class="clinic-text"><div class="clinic">GALADENT+</div><div class="clinic-rule"></div></div>
+  </div>
+  <a class="call" href="tel:+995514593000">📞 <span data-i18n="ka">დარეკეთ</span><span data-i18n="ru">Позвонить</span><span data-i18n="en">Call</span></a>
+</div>
+
+<div class="lang-switch">
+  <div class="lang-btn active" data-setlang="ka">ქართული</div>
+  <div class="lang-btn" data-setlang="en">English</div>
+  <div class="lang-btn" data-setlang="ru">Русский</div>
+</div>
+
+<nav class="sitenav">
+  <a href="index.html"><span data-i18n="ka">ფასები და ჩაწერა</span><span data-i18n="ru">Цены и запись</span><span data-i18n="en">Prices & booking</span></a>
+  <a href="about.html"><span data-i18n="ka">ჩვენ შესახებ</span><span data-i18n="ru">О нас</span><span data-i18n="en">About us</span></a>
+  <a href="tips.html" class="active"><span data-i18n="ka">რჩევები</span><span data-i18n="ru">Советы</span><span data-i18n="en">Tips</span></a>
+</nav>
+
+<div class="wrap">
+
+  <div data-i18n="ka"><div class="eyebrow">სასარგებლო</div><h1>რჩევები კბილების მოვლაზე</h1><div class="lead">მოკლე და მარტივი წესები — ის, რაც ნამდვილად მნიშვნელოვანია იცოდეთ და ყოველდღიურად გამოიყენოთ.</div></div>
+  <div data-i18n="en"><div class="eyebrow">Useful</div><h1>Tips for dental care</h1><div class="lead">Short, simple rules — the things that really matter to know and apply every day.</div></div>
+  <div data-i18n="ru"><div class="eyebrow">Полезное</div><h1>Советы по уходу за зубами</h1><div class="lead">Короткие, простые правила — то, что реально стоит знать и применять каждый день.</div></div>
+
+  <div class="tip-card">
+    <div class="tip-num">1</div>
+    <div class="tip-body">
+      <div data-i18n="ka"><h3>ძაფი — არა ერთხელ კვირაში, არამედ ყოველდღე</h3><p>ჯაგრისი ვერ აღწევს კბილებს შორის სივრცეში — სწორედ იქ ყველაზე ხშირად ჩნდება კარიესი. სტომატოლოგიური ძაფი ან ირიგატორი ყოველდღე, სასურველია საღამოს.</p></div>
+      <div data-i18n="en"><h3>Floss — not once a week, but daily</h3><p>A toothbrush can't reach the space between teeth, which is exactly where cavities most often start. Use dental floss or a water flosser daily, ideally in the evening.</p></div>
+      <div data-i18n="ru"><h3>Зубная нить — не раз в неделю, а каждый день</h3><p>Щётка не достаёт до промежутков между зубами — именно там чаще всего начинается кариес. Зубная нить или ирригатор каждый день, желательно вечером.</p></div>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <div class="tip-num">2</div>
+    <div class="tip-body">
+      <div data-i18n="ka"><h3>საკვები, რომელიც კბილებს ატყუებს</h3><p>საშიშია არა მარტო ტკბილეული, არამედ ის, თუ რამდენ ხანს რჩება შაქარი პირში — წვეთობით დალეული ტკბილი სასმელი დღის განმავლობაში კბილებისთვის უფრო საზიანოა, ვიდრე ერთი დესერტი სადილზე.</p></div>
+      <div data-i18n="en"><h3>What really damages your teeth</h3><p>It's not just sweets — it's how long sugar stays in your mouth. Sipping a sugary drink slowly over hours does more damage than one dessert after a meal.</p></div>
+      <div data-i18n="ru"><h3>Что на самом деле вредит зубам</h3><p>Дело не только в сладком, а в том, сколько времени сахар остаётся во рту. Сладкий напиток, который пьют весь день маленькими глотками, вреднее одного десерта после обеда.</p></div>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <div class="tip-num">3</div>
+    <div class="tip-body">
+      <div data-i18n="ka"><h3>ჯაგრისის შეცვლა — 3 თვეში ერთხელ</h3><p>ცვეთილი ჯაგრისი ვერ წმენდს ეფექტურად და აგროვებს ბაქტერიებს. შეცვალეთ 3 თვეში ერთხელ და ყოველთვის — გაციებისა თუ ანგინის შემდეგ.</p></div>
+      <div data-i18n="en"><h3>Replace your toothbrush every 3 months</h3><p>A worn toothbrush cleans less effectively and holds bacteria. Replace it every 3 months, and always after a cold or throat infection.</p></div>
+      <div data-i18n="ru"><h3>Меняйте щётку раз в 3 месяца</h3><p>Изношенная щётка хуже чистит и копит бактерии. Меняйте её раз в 3 месяца, а также обязательно после простуды или ангины.</p></div>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <div class="tip-num">4</div>
+    <div class="tip-body">
+      <div data-i18n="ka"><h3>ღამის ღრჭიალი — ჩუმი პრობლემა</h3><p>ბევრი ადამიანი ღამით კბილებს იღრჭიალებს და ამის შესახებ არც კი იცის — ტკივილი ყბაში დილით ან ცვეთილი კბილები ხშირად ამის ნიშანია. ღირს სტომატოლოგთან საუბარი დამცავ ღამის ლუფზე.</p></div>
+      <div data-i18n="en"><h3>Night grinding — a silent problem</h3><p>Many people grind their teeth at night without realizing it — a sore jaw in the morning or visibly worn teeth are common signs. Ask your dentist about a protective night guard.</p></div>
+      <div data-i18n="ru"><h3>Скрежет зубами во сне — тихая проблема</h3><p>Многие скрипят зубами во сне и не подозревают об этом — боль в челюсти по утрам или стёртые зубы часто на это указывают. Стоит спросить у стоматолога о защитной капе.</p></div>
+    </div>
+  </div>
+
+  <div class="tip-card">
+    <div class="tip-num">5</div>
+    <div class="tip-body">
+      <div data-i18n="ka"><h3>თამბაქო — არა მხოლოდ სუნთქვის პრობლემა</h3><p>მოწევა ანელებს ღრძილების შეხორცებას და ფარავს სისხლდენის ადრეულ ნიშნებს — ზოგჯერ პრობლემა შესამჩნევი ხდება მხოლოდ გვიან ეტაპზე. კიდევ ერთი მიზეზი შესამოწმებლად ვიზიტისთვის.</p></div>
+      <div data-i18n="en"><h3>Tobacco — more than a breath issue</h3><p>Smoking slows gum healing and can mask early signs of bleeding — sometimes a problem only becomes noticeable at a later stage. One more reason for a regular check-up.</p></div>
+      <div data-i18n="ru"><h3>Табак — не только про запах изо рта</h3><p>Курение замедляет заживление дёсен и маскирует ранние признаки кровоточивости — иногда проблема становится заметна только на позднем этапе. Ещё один повод для регулярного осмотра.</p></div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div data-i18n="ka"><div class="kicker">გავრცელებული მითები</div><h2>მტკივნეულია თუ არა კბილების მკურნალობა: 5 მითი</h2></div>
+    <div data-i18n="en"><div class="kicker">Busting myths</div><h2>Is dental treatment painful? 5 myths</h2></div>
+    <div data-i18n="ru"><div class="kicker">Развенчиваем мифы</div><h2>Больно ли лечить зубы: 5 мифов</h2></div>
+  </div>
+
+  <div class="story-card">
+    <div data-i18n="ka">
+      <div class="myth-item"><div class="myth-title">მითი 1: „კბილების მკურნალობა ყოველთვის მტკივნეულია"</div><p>თანამედროვე ანესთეზია ტკივილს თითქმის მთლიანად ხსნის, დისკომფორტი მინიმალურია. შიში ხშირად ბავშვობის მოგონებებიდან მოდის, არა რეალური გამოცდილებიდან.</p></div>
+      <div class="myth-item"><div class="myth-title">მითი 2: „თუ კბილი არ გტკივათ, ექიმთან სვლა არ არის საჭირო"</div><p>კარიესი და ღრძილების დაავადებები ადრეულ ეტაპზე ჩვეულებრივ საერთოდ არ ტკივა. ტკივილი ჩნდება მაშინ, როცა პრობლემა უკვე შორს წასულია.</p></div>
+      <div class="myth-item"><div class="myth-title">მითი 3: „კბილის ამოღება ყოველთვის უკიდურესი ზომაა"</div><p>პირიქით — რაც უფრო დიდხანს გაჭიანურდება პრობლემური კბილი, მით მეტია მეზობელი კბილების დაზიანების რისკი.</p></div>
+      <div class="myth-item"><div class="myth-title">მითი 4: „იმპლანტები — ხანგრძლივი და თითქმის ყოველთვის რთული პროცესია"</div><p>სირთულე დამოკიდებულია კონკრეტულ სიტუაციაზე, მაგრამ თანამედროვე იმპლანტაცია გამოცდილი ექიმისთვის რუტინული პროცედურაა.</p></div>
+      <div class="myth-item"><div class="myth-title">მითი 5: „გათეთრება ყოველთვის აზიანებს მინანქარს"</div><p>პროფესიონალური, ექიმის მიერ კონტროლირებული გათეთრება უსაფრთხოა — რისკები ჩნდება უკონტროლო, სახლში გამოყენებული საშუალებებისგან.</p></div>
+      <div class="myth-cta">თუ დიდი ხანია ვიზიტს ერიდებით ერთ-ერთი ამ მითის გამო — <a href="index.html#booking">დროა შეამოწმოთ</a>.</div>
+    </div>
+    <div data-i18n="en">
+      <div class="myth-item"><div class="myth-title">Myth 1: "Dental treatment is always painful"</div><p>Modern anesthesia removes almost all the pain — discomfort is minimal. The fear usually comes from childhood memories, not from actual experience.</p></div>
+      <div class="myth-item"><div class="myth-title">Myth 2: "If a tooth doesn't hurt, there's no need to see a dentist"</div><p>Cavities and gum disease usually don't hurt at all in the early stages. Pain shows up once the problem has already progressed.</p></div>
+      <div class="myth-item"><div class="myth-title">Myth 3: "Extraction is always a last resort, better to wait"</div><p>The opposite is true — the longer a problem tooth is left untreated, the higher the risk of damage to neighboring teeth.</p></div>
+      <div class="myth-item"><div class="myth-title">Myth 4: "Implants are always long and complicated"</div><p>The complexity depends on the specific case, but for an experienced dentist, modern implantation is a routine procedure.</p></div>
+      <div class="myth-item"><div class="myth-title">Myth 5: "Whitening always damages enamel"</div><p>Professional whitening, supervised by a dentist, is safe — the real risks come from uncontrolled, at-home products used without guidance.</p></div>
+      <div class="myth-cta">If you've been putting off a visit because of one of these myths — <a href="index.html#booking">now's a good time to check</a>.</div>
+    </div>
+    <div data-i18n="ru">
+      <div class="myth-item"><div class="myth-title">Миф 1: «Лечение зубов — это всегда больно»</div><p>Современная анестезия снимает боль почти полностью, дискомфорт минимален. Страх чаще идёт из детских воспоминаний, а не из реального опыта.</p></div>
+      <div class="myth-item"><div class="myth-title">Миф 2: «Если зуб не болит — к врачу идти не надо»</div><p>Кариес и болезни дёсен на ранней стадии обычно не болят вообще. Боль появляется, когда проблема уже зашла далеко.</p></div>
+      <div class="myth-item"><div class="myth-title">Миф 3: «Удаление зуба — это всегда крайняя мера, лучше потерпеть»</div><p>Наоборот: чем дольше тянуть с проблемным зубом, тем выше риск осложнений для соседних зубов.</p></div>
+      <div class="myth-item"><div class="myth-title">Миф 4: «Импланты — это долго и почти всегда сложно»</div><p>Сложность зависит от ситуации, но современная имплантация — рутинная процедура для опытного врача.</p></div>
+      <div class="myth-item"><div class="myth-title">Миф 5: «Отбеливание всегда портит эмаль»</div><p>Профессиональное отбеливание под контролем врача безопасно — риски связаны с бесконтрольными домашними средствами.</p></div>
+      <div class="myth-cta">Если давно откладывали визит из-за одного из этих мифов — <a href="index.html#booking">самое время его проверить</a>.</div>
+    </div>
+  </div>
+
+  <footer>GALADENT+ · Тбилиси, Глдани · <a href="tel:+995514593000">+995 514 59 30 00</a></footer>
+</div>
+
+<script>
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
+    document.body.className = 'lang-' + b.dataset.setlang;
+    document.documentElement.lang = b.dataset.setlang;
+    document.querySelectorAll('.lang-btn').forEach(x => x.classList.toggle('active', x === b));
+  }));
+</script>
+</body>
+</html>
